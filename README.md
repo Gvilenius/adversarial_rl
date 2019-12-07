@@ -1,4 +1,4 @@
-# enviroment : gym
+enviroment : gym
 
-# algorithm : ppo2
+algorithm : ppo2
 > pip install stable_baselines
