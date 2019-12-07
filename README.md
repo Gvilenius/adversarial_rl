@@ -1,11 +1,11 @@
-#### requirements
+### requirements
 
 ``` pip install stable_baselines ```
 
-#### enviroment
-gym-atari, SpaceInvadersNoFrameskip-v0
+### enviroment
+SpaceInvadersNoFrameskip-v0
 
-#### algorithm
+### algorithm
 ppo2
 
 
