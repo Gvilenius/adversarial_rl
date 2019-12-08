@@ -1,18 +1,14 @@
 from stable_baselines import PPO2, logger
-from stable_baselines.common.cmd_util import make_atari_env, atari_arg_parser
+from stable_baselines.common.cmd_util import make_adversarial_atari_env, make_atari_env, atari_arg_parser
 from stable_baselines.common.vec_env import VecFrameStack
 from stable_baselines.common.policies import CnnPolicy, CnnLstmPolicy, CnnLnLstmPolicy, MlpPolicy
 import tensorflow as tf
 
 def test():
-    tf_config = tf.ConfigProto(
-        allow_soft_placement=True,
-        inter_op_parallelism_threads=1,
-        intra_op_parallelism_threads=1)
-
-    env = VecFrameStack(make_atari_env("SpaceInvadersNoFrameskip-v0", 1, 12), 4)
-    model = PPO2.load("model.pkl", env)
+    model = PPO2.load("model.pkl")
     sess = model.sess
+    
+    env = VecFrameStack(make_atari_env("SpaceInvadersNoFrameskip-v0", 1, 123), 4)
 
     pi = model.act_model
     action_dist = pi.action
